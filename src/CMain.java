@@ -2,13 +2,13 @@ import java.util.Scanner;
 import java.io.*;
 
 public class CMain {
-	// Rellenar con los datos de los dos alumnos que presentan la práctica
-	static String NombreAlumno1="nombre del alumno 1";
-	static String ApellidosAlumno1="apellidos del alumno 1";
-	static String NIUAlumno1="0000000"; // NIU alumno1
-	static String NombreAlumno2="nombre del alumno 2";
-	static String ApellidosAlumno2="apellidos del alumno 2";
-	static String NIUAlumno2="0000000"; // NIU alumno2
+	// Rellenar con los datos de los dos alumnos que presentan la practica
+	static String NombreAlumno1="anan";
+	static String ApellidosAlumno1="sadiya";
+	static String NIUAlumno1="1431013"; // NIU alumno1
+	static String NombreAlumno2="rafa";
+	static String ApellidosAlumno2="gomez perez";
+	static String NIUAlumno2="1430965"; // NIU alumno2
 
 	static String[] NIUS={
 		"0000000",

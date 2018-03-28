@@ -71,6 +71,44 @@ public class CList {
 		}
 		return true;		
 	}
+	//Nuevo metodo125 a 140. Error 1
+		public boolean clientHasID(CClient c) {
+			CNode node=m_Start;
+			
+			while (node!=null) {
+				CClient cc = (CClient) node.m_Element;
+				if (cc.m_Number==c.m_Number) {
+					return true;
+				}
+				node=node.m_Next;
+			}
+			return false;
+		}
+		public boolean clientHasName(CClient c) {
+			CNode node=m_Start;
+			while (node!=null) {
+				CClient cc = (CClient) node.m_Element;
+				//System.out.println(cc.m_Name);
+				//System.out.println(c.m_Name);
+				if (cc.m_Name.equals(c.m_Name)) {
+					return true;
+				}
+				node=node.m_Next;
+			}
+			return false;
+		}
+			
+			public boolean clientHasIDM(int num) {
+				CNode node=m_Start;
+				while (node!=null) {
+					CClient cc = (CClient) node.m_Element;
+					if (cc.m_Number==num) {
+						return true;
+					}
+					node=node.m_Next;
+				}
+				return false;
+			}
 	public void Print(PrintStream out) {
 		out.print("[");
 		CNode n=m_Start;

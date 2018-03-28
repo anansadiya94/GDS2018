@@ -1,3 +1,4 @@
+
 public class CInvoicing {
 	CClientList m_Clients;
 	CProductList m_Products;
@@ -13,6 +14,13 @@ public class CInvoicing {
 	    public CClientNotFound(String msg) {
 	        super(msg);
 	    }
+	}
+	
+	public static class CClientAlreadyExist extends Exception {
+		private static final long serialVersionUID = 1525448168999578009L;
+		public CClientAlreadyExist(String msg) {
+			super(msg);
+		}
 	}
 	public  static class CClientDuplicatedName extends Exception {
 		private static final long serialVersionUID=1002L;
@@ -33,6 +41,8 @@ public class CInvoicing {
 	    }
 	}
 	public void NewClient(CClient client) throws Exception {
+		if(m_Clients.clientHasName(client)) throw new CClientAlreadyExist("nombre de cliente duplicado " + client.m_Name);
+		if(m_Clients.clientHasID(client)) throw new CClientAlreadyExist("numero de cliente duplicado " + client.m_Number);		
 		m_Clients.PushBack(client);
 	}
 	public void DeleteClient(CClient client) throws Exception {
@@ -52,6 +62,8 @@ public class CInvoicing {
 	}
 	public void UpdateClient(CClient client, String name, int number) throws Exception {
 		if (!m_Clients.MemberP(client)) throw new CClientNotFound("El cliente a modificar no pertenece a la lista de clientes");
+		if(!m_Clients.clientHasName(client)) throw new CClientAlreadyExist("nombre de cliente no existe " + client.m_Name);
+		if(m_Clients.clientHasIDM(number)) throw new CClientAlreadyExist("numero de cliente duplicado " + number);
 		client.m_Name=name;
 		client.m_Number=number;
 	}
