@@ -137,6 +137,7 @@ public class CList {
 			n.m_Element.getName(out);
 		}
 	}
+	//Prints the command imprimir factura
 	public void printFact(PrintStream out) {
 		CNode n = m_Start;
 		CNode aux = m_End;
