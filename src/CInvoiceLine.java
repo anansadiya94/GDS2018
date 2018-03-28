@@ -17,4 +17,12 @@ public class CInvoiceLine extends CElement {
 	public float Factura(PrintStream out, float total) {
 		return total + m_Product.m_Price * m_Quantity;
 	}
+	public void printFact(PrintStream out,int number) {
+		out.print(m_Quantity + "               ");
+		out.print(m_Product.m_Name + "          ");
+		out.print(m_Product.m_Price + "               ");
+		out.print(m_Product.m_Price * m_Quantity);
+		out.println();
+		
+	}
 }

@@ -1,3 +1,4 @@
+import java.util.Calendar;
 import java.util.Scanner;
 import java.io.*;
 
@@ -59,9 +60,10 @@ public class CMain {
 		}
 		else if (elemento.equalsIgnoreCase("Factura")) {
 			int numero=sl.nextInt();
-			String nombreCliente= sl.next();
+			String fecha = sl.next();
+			String nombreCliente = sl.next();			
 			if (numero<1) throw new Exception("numero de factura menor que 1 " + numero);
-			m_Invoicing.NewInvoice(new CInvoice(numero,m_Invoicing.FindClientByName(nombreCliente)));			
+			m_Invoicing.NewInvoice(new CInvoice(numero,fecha,m_Invoicing.FindClientByName(nombreCliente)));			
 		}
 		else if (elemento.equalsIgnoreCase("Linea")) {
 			int numeroFactura= sl.nextInt();
@@ -168,11 +170,11 @@ public class CMain {
 	static void ProcesarListado(Scanner sl)  throws Exception {
 		String elemento=sl.next();
 		if (elemento.equalsIgnoreCase("Facturas")) {
-			System.out.print("LISTADO DE FACTURAS MUEBLES JOSE");	
-			System.out.println();		
-			System.out.print("NUMERO DE FACTURA   CLIENTE             IMPORTE");
-			System.out.println();	
-			m_Invoicing.m_Invoices.Factura(System.out, 0);	
+				System.out.print("LISTADO DE FACTURAS MUEBLES JOSE");	
+				System.out.println();		
+				System.out.print("NUMERO DE FACTURA   FECHA              CLIENTE             IMPORTE");
+				System.out.println();	
+				m_Invoicing.m_Invoices.Factura(System.out, 0);
 		} else if (elemento.equalsIgnoreCase("Clientes")) { //listado Clientes
             System.out.print("LISTADO DE CLIENTES MUEBLES JOSE");
             System.out.println();
@@ -183,11 +185,32 @@ public class CMain {
 		else if (elemento.equalsIgnoreCase("Productos")) { //listado Productos
 			System.out.print("LISTADO DE PRODUCTOS MUEBLES JOSE");	
 			System.out.println();
-			System.out.print("CODIGO PRODUCTO   NOMBRE    PRECIO PRODUCTO");
+			System.out.print("CODIGO PRODUCTO   NOMBRE           PRECIO");
 			System.out.println();	
 			m_Invoicing.m_Products.Productos(System.out, 0);			
 		}
         else throw new CSyntaxError("Listado ...");		
+	}
+	public static void ProcesarImprimir(Scanner sl) {
+		String elemento = sl.next();
+		if (elemento.equalsIgnoreCase("Factura")) {
+			System.out.println("FACTURA PAPELERIA EL LAPIZ AFILADO");           
+            System.out.print("NUMERO: "); 
+            m_Invoicing.m_Invoices.Number(System.out);
+            System.out.println();
+            System.out.print("FECHA: ");
+            m_Invoicing.m_Invoices.Date(System.out);
+            System.out.println();
+            System.out.print("CLIENTE: ");
+            m_Invoicing.m_Invoices.Name(System.out);
+            System.out.println();
+            System.out.println();
+            System.out.println("CONCEPTO");
+            System.out.print("CANTIDAD	PRODUCTO	PRECIO UNITARIO	   IMPORTE");
+            System.out.println();
+            m_Invoicing.m_Invoices.printFact(System.out);
+            //m_Invoicing.m_Clients.Clientes(System.out, 0);
+		}
 	}
 	
 	public static void main(String[] args) throws Exception {
@@ -227,6 +250,7 @@ public class CMain {
 						else if (orden.equalsIgnoreCase("Eliminar")) ProcesarEliminar(sl);
 						else if (orden.equalsIgnoreCase("Ver")) ProcesarVer(sl);
 						else if (orden.equalsIgnoreCase("Listado")) ProcesarListado(sl);
+						else if (orden.equalsIgnoreCase("Imprimir")) ProcesarImprimir(sl);
 						else {
 							sl.close();
 							throw new CSyntaxError("Orden no reconocida " + linea);
@@ -247,7 +271,7 @@ public class CMain {
 				}
 			}
 			s.close();
-		} 
+		}
 		catch (Exception e) {
 			System.out.println("Excepcion no controlada");
 			e.printStackTrace();

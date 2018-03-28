@@ -9,5 +9,18 @@ public class CElement {
 		out.print("Factura()");
 		return 0;
 	}
+	public void getNumber(PrintStream out) {
+		out.print("getNumber()");
+	}
+	public void getDate(PrintStream out) {
+		out.print("getDate()");
+	}
+	public void getName(PrintStream out) {
+		out.print("getName()");
+	}
+	public void printFact(PrintStream out, int i) {
+		out.print("printFact()");
+	}
+	
 }
 

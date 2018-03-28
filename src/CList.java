@@ -119,6 +119,37 @@ public class CList {
 		}
 		out.print("]");
 	}
+	public void Number(PrintStream out) {
+		CNode n = m_Start;
+		if (n != null) {
+			n.m_Element.getNumber(out);
+		}
+	}
+	public void Date(PrintStream out) {
+		CNode n = m_Start;
+		if (n != null) {
+			n.m_Element.getDate(out);
+		}
+	}
+	public void Name(PrintStream out) {
+		CNode n = m_Start;
+		if (n != null) {
+			n.m_Element.getName(out);
+		}
+	}
+	public void printFact(PrintStream out) {
+		CNode n = m_Start;
+		CNode aux = m_End;
+		int i = 0;
+		if (n != null) {
+			while(i < 2) {
+				n.m_Element.printFact(out,i);
+				n = m_End;
+				i++;
+			}
+			
+		}
+	}
 	
 	public float Factura(PrintStream out, float total) {
 		CNode n=m_Start;
@@ -130,7 +161,7 @@ public class CList {
 			out.println();
 			return total;
 		}
-		else
+		 else
 		{
 			if(n.m_Element.getClass() == c.getClass())
 			{
@@ -158,6 +189,8 @@ public class CList {
 				}
 			}
 		}
+	
+	
 		public void Clientes(PrintStream out, float total) {
 	        CNode n=m_Start;
 	        while (n!=null) {
