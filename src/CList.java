@@ -155,7 +155,20 @@ public class CList {
 				out.print("TOTAL: " + total);	
 				out.println();
 				return(total);
+				}
 			}
-		}		
+		}
+		public void Clientes(PrintStream out, float total) {
+	        CNode n=m_Start;
+	        while (n!=null) {
+	            CClient cc = (CClient) n.m_Element;
+	            System.out.print(cc.m_Number);
+	            System.out.print("                   ");
+	            System.out.print(cc.m_Name);
+	            System.out.println();
+	            n=n.m_Next;
+	        }
 	}
+	
+	
 }

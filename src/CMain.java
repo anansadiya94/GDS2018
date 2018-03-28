@@ -169,12 +169,18 @@ public class CMain {
 		String elemento=sl.next();
 		if (elemento.equalsIgnoreCase("Facturas")) {
 			System.out.print("LISTADO DE FACTURAS MUEBLES JOSE");	
-			System.out.println();
+			System.out.println();		
 			System.out.print("NUMERO DE FACTURA   CLIENTE             IMPORTE");
 			System.out.println();	
-			m_Invoicing.m_Invoices.Factura(System.out, 0);			
-		}
-		else throw new CSyntaxError("Listado ...");		
+			m_Invoicing.m_Invoices.Factura(System.out, 0);	
+		} else if (elemento.equalsIgnoreCase("Clientes")) {
+            System.out.print("LISTADO DE CLIENTES MUEBLES JOSE");
+            System.out.println();
+            System.out.print("NUMERO DE CLIENTE   NOMBRE");
+            System.out.println();
+            m_Invoicing.m_Clients.Clientes(System.out, 0);
+        }		
+        else throw new CSyntaxError("Listado ...");		
 	}
 	
 	public static void main(String[] args) throws Exception {
