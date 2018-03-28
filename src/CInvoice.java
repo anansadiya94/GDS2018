@@ -3,17 +3,17 @@ import java.io.PrintStream;
 public class CInvoice extends CElement {
 	public int m_Number;
 	public CClient m_Client;
-	public CProductList m_Products;
+	public CInvoiceLineList m_Lines;
 	public CInvoice(int number,CClient client) {
 		m_Number=number;
 		m_Client=client;
-		m_Products=new CProductList();
+		m_Lines=new CInvoiceLineList();
 	}
-	public void AddProduct(CProduct product) {
-		m_Products.PushBack(product);
+	public void AddProduct(CInvoiceLine invoiceLine) {
+		m_Lines.PushBack(invoiceLine);
 	}
-	public void DeleteProduct(CProduct product) {
-		m_Products.Delete(product);
+	public void DeleteProduct(CInvoiceLine invoiceLine) {
+		m_Lines.Delete(invoiceLine);
 	}
 	public void Print(PrintStream out) {
 		out.print("Invoice(");
@@ -21,7 +21,13 @@ public class CInvoice extends CElement {
 		out.print(",");
 		out.print(m_Client.m_Name);
 		out.print(",");
-		m_Products.Print(out);
+		m_Lines.Print(out);
 		out.print(")");
+	}
+	public float Factura(PrintStream out, float total) {
+		out.print(m_Number + "                   ");
+		out.print(m_Client.m_Name + "                ");
+		total = m_Lines.Factura(out, total);
+		return total;
 	}
 }

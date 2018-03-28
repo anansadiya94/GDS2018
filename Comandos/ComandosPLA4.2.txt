@@ -1,0 +1,17 @@
+Nuevo Cliente pepe 1
+Nuevo Cliente juan 5
+Nuevo Cliente carlos 1
+Nuevo Cliente pepe 10
+Modificar Cliente pepe nombre juan
+Modificar Cliente pepe numero 5
+Nuevo Producto rastrillo 1 10
+Nuevo Producto peonza 2 20
+Nueva Factura 1 10/12/2015 pepe
+Nueva Linea 1 rastrillo 5
+Ver Clientes
+Ver Productos
+Ver Facturas
+Listado Facturas
+Listado Productos
+Listado Clientes
+Imprimir factura 1

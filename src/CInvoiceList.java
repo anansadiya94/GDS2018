@@ -26,7 +26,7 @@ public class CInvoiceList extends CList {
 		CNode node=m_Start;
 		while (node!=null) {
 			CInvoice invoice=(CInvoice) node.m_Element;
-			if (invoice.m_Products.MemberP(product)) {
+			if (invoice.m_Lines.MemberP(product)) {
 				return true;
 			}
 			node=node.m_Next;

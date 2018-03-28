@@ -152,15 +152,15 @@ public class CInvoicing {
 		invoice.m_Number=number;
 		invoice.m_Client=client;
 	}
-	public void AddProductoToInvoice(CInvoice invoice, CProduct product) throws Exception {
+	public void AddProductoToInvoice(CInvoice invoice, CProduct product, int quantity) throws Exception {
 		if (!m_Invoices.MemberP(invoice))  throw new CInvoiceNotFound("Factura no encontrada " + invoice.m_Number);
 		if (!m_Products.MemberP(product))  throw new CProductNotFound("Producto no encontrado " + product.m_Name);
-		if (invoice.m_Products.MemberP(product)) throw new Exception("Producto duplicado en factura " + product.m_Name);
-		invoice.AddProduct(product);
+		if (invoice.m_Lines.MemberP(product)) throw new Exception("Producto duplicado en factura " + product.m_Name);
+		invoice.AddProduct(new CInvoiceLine(product, quantity));
 	}
 	public void DeleteProductFromInvoice(CInvoice invoice, CProduct product) throws Exception {
 		if (!m_Invoices.MemberP(invoice))  throw new CInvoiceNotFound("Factura no encontrada " + invoice.m_Number);
-		if (!invoice.m_Products.MemberP(product))  throw new CProductNotFound("Producto no encontrado " + product.m_Name);
-		invoice.DeleteProduct(product);
+		if (!invoice.m_Lines.MemberP(product))  throw new CProductNotFound("Producto no encontrado " + product.m_Name);
+		invoice.DeleteProduct(new CInvoiceLine(product, 1));
 	}
 }

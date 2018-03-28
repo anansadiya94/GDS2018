@@ -1,0 +1,20 @@
+Nuevo Cliente Pepe 1
+Nuevo Cliente Juan 5
+Nuevo Cliente Juan 1
+Nuevo Cliente Rosario 5
+Nuevo Cliente Carlos 10
+Modificar Cliente Carlos numero 1
+Modificar Cliente Carlos numero 20
+Nuevo Producto rastrillo 1 10
+Nuevo Producto peonza 2 20
+Nueva Factura 1 10/12/2015 pepe
+Nueva Linea 1 rastrillo 5
+Nueva Factura 1 11/12/2015 Juan
+Nueva Linea 1 peonza 5
+Ver Clientes
+Ver Productos
+Ver Facturas
+Listado Facturas
+Listado Productos
+Listado Clientes
+Imprimir factura 1

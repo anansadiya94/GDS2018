@@ -1,0 +1,57 @@
+0000000
+nombre del alumno 1
+apellidos del alumno 1
+0000000
+nombre del alumno 2
+apellidos del alumno 2
+Fichero de ordenes: comandosPLA4.0.txt
+1 : Linea : Nuevo Cliente Pepe 1
+2 : Linea : Nuevo Cliente Juan 5
+3 : Linea : Nuevo Cliente Juan 1
+3 : Excepcion : CInvoicing$CClientDuplicatedName: nombre de cliente duplicado Juan
+4 : Linea : Nuevo Cliente Rosario 5
+4 : Excepcion : CInvoicing$CClientDuplicatedNumber: numero de cliente duplicado 5
+5 : Linea : Nuevo Cliente Carlos 10
+6 : Linea : Modificar Cliente Carlos numero 1
+6 : Excepcion : CInvoicing$CClientDuplicatedNumber: numero de cliente duplicado 1
+7 : Linea : Modificar Cliente Carlos numero 20
+8 : Linea : Nuevo Producto rastrillo 1 10
+9 : Linea : Nuevo Producto peonza 2 20
+10 : Linea : Nueva Factura 1 10/12/2015 pepe
+11 : Linea : Nueva Linea 1 rastrillo 5
+12 : Linea : Nueva Factura 1 11/12/2015 Juan
+13 : Linea : Nueva Linea 1 peonza 5
+14 : Linea : Ver Clientes
+14 : Salida : [Client(Pepe,1), Client(Juan,5), Client(Carlos,20)]
+15 : Linea : Ver Productos
+15 : Salida : [CProduct(rastrillo,1,10.0), CProduct(peonza,2,20.0)]
+16 : Linea : Ver Facturas
+16 : Salida : [Invoice(1,10/12/2015,Pepe,[CInvoiceLine(rastrillo,5), CInvoiceLine(peonza,5)]), Invoice(1,11/12/2015,Juan,[])]
+17 : Linea : Listado Facturas
+LISTADO DE FACTURAS LIBRERIA EL LAPIZ AFILADO
+NUMERO DE FACTURA FECHA       CLIENTE             IMPORTE
+1                 10/12/2015  Pepe                150.0
+1                 11/12/2015  Juan                0.0
+TOTAL: 150.0
+18 : Linea : Listado Productos
+LISTADO DE PRODUCTOS LIBRERIA EL LAPIZ AFILADO
+CODIGO PRODUCTO   NOMBRE
+1                 rastrillo           10.0
+2                 peonza              20.0
+19 : Linea : Listado Clientes
+LISTADO DE CLIENTES LIBRERIA EL LAPIZ AFILADO
+NUMERO DE CLIENTE   NOMBRE
+1                   Pepe                
+5                   Juan                
+20                  Carlos              
+20 : Linea : Imprimir factura 1
+FACTURA PAPELERIA EL LAPIZ AFILADO
+NUMERO: 1
+FECHA: 10/12/2015
+CLIENTE: Pepe
+
+CONCEPTO
+CANTIDAD  PRODUCTO                 PRECIO UNITARIO  IMPORTE
+5         rastrillo                10.0             50.0
+5         peonza                   20.0             100.0
+TOTAL: 150.0

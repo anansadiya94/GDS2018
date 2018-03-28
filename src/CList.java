@@ -119,4 +119,43 @@ public class CList {
 		}
 		out.print("]");
 	}
+	
+	public float Factura(PrintStream out, float total) {
+		CNode n=m_Start;
+		CInvoiceLine c = new CInvoiceLine(null, 0);
+		float totalPersona = 0;
+		if(n == null)
+		{
+			out.print(0.0);		
+			out.println();
+			return total;
+		}
+		else
+		{
+			if(n.m_Element.getClass() == c.getClass())
+			{
+				while (n!=null) {
+					totalPersona = n.m_Element.Factura(out, totalPersona);
+					n=n.m_Next;
+				}
+				out.print(totalPersona);
+				out.println();
+				return totalPersona;
+			}
+			//CInvoice
+			else
+			{
+				while (n!=null) {
+					totalPersona = 0;
+					total = n.m_Element.Factura(out, total);
+					total += totalPersona;
+					n=n.m_Next;
+					//if (n!=null) out.println();
+				}
+				out.print("TOTAL: " + total);	
+				out.println();
+				return(total);
+			}
+		}		
+	}
 }
