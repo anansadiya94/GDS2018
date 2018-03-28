@@ -169,6 +169,20 @@ public class CList {
 	            n=n.m_Next;
 	        }
 	}
+		
+		public void Productos(PrintStream out, float total) {
+			CNode n=m_Start;
+			while (n!=null) {
+				CProduct cd = (CProduct) n.m_Element;
+				System.out.print(cd.m_Code);
+				System.out.print("                 ");
+				System.out.print(cd.m_Name);
+				System.out.print("           ");
+				System.out.print(cd.m_Price);
+				System.out.println();
+				n=n.m_Next;
+			}	
+		}
 	
 	
 }

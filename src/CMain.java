@@ -179,7 +179,14 @@ public class CMain {
             System.out.print("NUMERO DE CLIENTE   NOMBRE");
             System.out.println();
             m_Invoicing.m_Clients.Clientes(System.out, 0);
-        }		
+        }
+		else if (elemento.equalsIgnoreCase("Productos")) {
+			System.out.print("LISTADO DE PRODUCTOS MUEBLES JOSE");	
+			System.out.println();
+			System.out.print("CODIGO PRODUCTO   NOMBRE    PRECIO PRODUCTO");
+			System.out.println();	
+			m_Invoicing.m_Products.Productos(System.out, 0);			
+		}
         else throw new CSyntaxError("Listado ...");		
 	}
 	
