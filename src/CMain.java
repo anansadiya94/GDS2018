@@ -173,14 +173,14 @@ public class CMain {
 			System.out.print("NUMERO DE FACTURA   CLIENTE             IMPORTE");
 			System.out.println();	
 			m_Invoicing.m_Invoices.Factura(System.out, 0);	
-		} else if (elemento.equalsIgnoreCase("Clientes")) {
+		} else if (elemento.equalsIgnoreCase("Clientes")) { //listado Clientes
             System.out.print("LISTADO DE CLIENTES MUEBLES JOSE");
             System.out.println();
             System.out.print("NUMERO DE CLIENTE   NOMBRE");
             System.out.println();
             m_Invoicing.m_Clients.Clientes(System.out, 0);
         }
-		else if (elemento.equalsIgnoreCase("Productos")) {
+		else if (elemento.equalsIgnoreCase("Productos")) { //listado Productos
 			System.out.print("LISTADO DE PRODUCTOS MUEBLES JOSE");	
 			System.out.println();
 			System.out.print("CODIGO PRODUCTO   NOMBRE    PRECIO PRODUCTO");
