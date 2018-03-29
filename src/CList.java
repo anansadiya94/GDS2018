@@ -142,13 +142,13 @@ public class CList {
 		CNode n = m_Start;
 		CNode aux = m_End;
 		int i = 0;
-		if (n != null) {
-			while(i < 2) {
+		while (n != null) {
+			while(i != 2) {
 				n.m_Element.printFact(out,i);
 				n = m_End;
 				i++;
 			}
-			
+			n=n.m_Next;
 		}
 	}
 	
@@ -170,7 +170,7 @@ public class CList {
 					totalPersona = n.m_Element.Factura(out, totalPersona);
 					n=n.m_Next;
 				}
-				out.print(totalPersona);
+				out.print("TOTAL: " + totalPersona);
 				out.println();
 				return totalPersona;
 			}
@@ -217,6 +217,15 @@ public class CList {
 				n=n.m_Next;
 			}	
 		}
-	
-	
+		
+		public boolean InvoceHasNumber(int num) {
+			CNode node=m_Start;
+			while (node!=null) {
+				if (((CInvoice) node.m_Element).m_Number==num) {
+					return true;
+				}
+				node=node.m_Next;
+			}
+			return false;
+		}
 }

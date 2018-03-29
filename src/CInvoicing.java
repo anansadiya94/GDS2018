@@ -135,8 +135,11 @@ public class CInvoicing {
 	}
 	public void NewInvoice(CInvoice invoice) throws Exception {
 		if (!m_Clients.MemberP(invoice.m_Client)) throw new CClientNotFound("El cliente de la factura no perteneces a la lista de clientes");
+		if (m_Invoices.InvoceHasNumber(invoice.m_Number)) throw new CInvoiceDuplicatedNumber ("numero de factura duplicado:" + invoice.m_Number);
+		//if (m_Invoices.SearchByNumber(invoice.m_Number)!=null) throw new CInvoiceDuplicatedNumber ("numero de factura duplicado:" + invoice.m_Number);
 		m_Invoices.PushBack(invoice);
 	}
+
 	public void DeleteInvoice(CInvoice invoice) throws Exception {
 		if (!m_Invoices.MemberP(invoice))  throw new CInvoiceNotFound("Factura no encontrada " + invoice.m_Number);
 		m_Invoices.Delete(invoice);

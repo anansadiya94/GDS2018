@@ -23,6 +23,5 @@ public class CInvoiceLine extends CElement {
 		out.print(m_Product.m_Price + "               ");
 		out.print(m_Product.m_Price * m_Quantity);
 		out.println();
-		
 	}
 }

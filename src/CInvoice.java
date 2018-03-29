@@ -50,9 +50,10 @@ public class CInvoice extends CElement {
 	}
 	public void printFact(PrintStream out, int number) {
 			float total = 0;
-			m_Lines.printFact(out);
-			if (number == 0)
-			total = m_Lines.Factura(out, total);
+			if (number == 0) {
+				m_Lines.printFact(out);
+				total = m_Lines.Factura(out, total);
+			}
 			//System.out.println();
 	}		
 }
