@@ -152,6 +152,7 @@ public class CInvoicing {
 	public void UpdateInvoiceHeader(CInvoice invoice, int number,CClient client) throws Exception {
 		if (!m_Invoices.MemberP(invoice))  throw new CInvoiceNotFound("Factura no encontrada " + invoice.m_Number);
 		if (!m_Clients.MemberP(client))  throw new CClientNotFound("Cliente no encontrado " + client.m_Name);
+		if (m_Invoices.InvoceHasNumber(invoice.m_Number)) throw new CInvoiceDuplicatedNumber ("numero de factura duplicado:" + invoice.m_Number);
 		invoice.m_Number=number;
 		invoice.m_Client=client;
 	}
